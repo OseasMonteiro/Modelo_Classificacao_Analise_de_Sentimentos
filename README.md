@@ -1,0 +1,1 @@
+# Modelo_Classificacao_Analise-_de_Sentimentos
