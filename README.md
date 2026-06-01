@@ -6,20 +6,26 @@ This project provides a comprehensive framework for performing sentiment analysi
 - **Visão Inicial dos Dados**: Lemos os dados de uma fonte (um arquivo CSV) para um DataFrame do Pandas e realizamos uma verificação inicial para entender sua estrutura.
 ![Primeiras linhas do Dataframe](./img/Primeiras_linhas_df.PNG)
 
-- **Gráfico da Distribuição dos Sentimentos**: ![Distribuição dos Sentimentos](./img/Grafico_Distribuicao_Sentimentos.PNG)
+- **Gráfico da Distribuição dos Sentimentos**: 
+![Distribuição dos Sentimentos](./img/Grafico_Distribuicao_Sentimentos.PNG)
+
 Nota-se que os dados estão balanceados, o que é ideal para construírmos um modelo de aprendizado de máquina. Se estivessem desbalanceados teríamos que aplicar estratégias como oversample, undersample, dentre outras.
 
 - Depois de realizarmos a análise da distribuição dos sentimentos, foi necessário fazer a limpeza dos dados e a engenharia de atributos, logo após dividimos os dados em treinamento e teste (75% - 25%) e desenvolvemos um pipeline de modelagem preditiva, por fim usamos o GridSearchCV, testamos sistematicamente várias combinações de configurações (hiperparâmetros) para o pipeline, a fim de encontrar a combinação que resulta na melhor performance possível.
 
 - **Treinamento do Modelo**: Nesta etapa, alimentamos o pipeline com os dados de treino. O GridSearchCV executa o processo de .fit(), onde o algoritmo aprende os padrões que conectam o texto dos reviews aos seus respectivos sentimentos.
+
 ![Treinamento_Modelo](./img/Treinamento_Modelo.PNG)
 
 - **Acurácia do Modelo**: Para finalizar, usamos o conjunto de teste (que o modelo nunca viu) para fazer previsões e compará-las com os resultados reais. Métricas como Acurácia, Relatório de Classificação e a Matriz de Confusão nos dizem quão bem o modelo está generalizando e se ele atende aos objetivos de negócio.
+
 ![Acurácia do Modelo](./img/Acuracia_Modelo.PNG)
+
 Uma acurácia de 81,15% está ideal para o nosso modelo, se fosse um modelo para área da saúde por exemplo, esse percentual é inaceitável. 
 Uma acurácia de 100% pode indicar problemas de overfiting no modelo, pois o ideal é ter um modelo que aprenda o relacionamento geral entre os dados.
 
 ![Matriz de Confusão](./img/Matriz_Confusao.PNG)
+
 As diagonais em azul mostram os acertos do modelo, quanda a classe verdadeira era negativa, o modelo previu negativo 47 vezes, e acertou.
 Quando o valor verdadeiro era positivo o modelo previu como positivo 52 vezes e acertou.
 A outra diagonal tem os erros do modelo, quando o valor verdadeiro era negativo, ele previu como positivo 11 vezes e errou.
