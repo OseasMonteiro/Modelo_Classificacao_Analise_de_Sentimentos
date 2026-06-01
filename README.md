@@ -4,9 +4,11 @@
 This project provides a comprehensive framework for performing sentiment analysis on textual data. The aim is to classify text inputs into categories such as positive, negative, or neutral based on their sentiment.
 
 - **Visão Inicial dos Dados**: Lemos os dados de uma fonte (um arquivo CSV) para um DataFrame do Pandas e realizamos uma verificação inicial para entender sua estrutura.
+
 ![Primeiras linhas do Dataframe](./img/Primeiras_linhas_df.PNG)
 
-- **Gráfico da Distribuição dos Sentimentos**: 
+- **Gráfico da Distribuição dos Sentimentos**:
+ 
 ![Distribuição dos Sentimentos](./img/Grafico_Distribuicao_Sentimentos.PNG)
 
 Nota-se que os dados estão balanceados, o que é ideal para construírmos um modelo de aprendizado de máquina. Se estivessem desbalanceados teríamos que aplicar estratégias como oversample, undersample, dentre outras.
