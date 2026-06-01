@@ -3,35 +3,36 @@
 ## Overview
 This project provides a comprehensive framework for performing sentiment analysis on textual data. The aim is to classify text inputs into categories such as positive, negative, or neutral based on their sentiment.
 
-- **Visão Inicial dos Dados**: Lemos os dados de uma fonte (um arquivo CSV) para um DataFrame do Pandas e realizamos uma verificação inicial para entender sua estrutura.
+- **Initial Data View**: We read data from a source (a CSV file) into a Pandas DataFrame and perform an initial check to understand its structure.
 
 ![Primeiras linhas do Dataframe](./img/Primeiras_linhas_df.PNG)
 
-- **Gráfico da Distribuição dos Sentimentos**:
- 
+- **Chart of Sentiment Distribution**:
+
 ![Distribuição dos Sentimentos](./img/Grafico_Distribuicao_Sentimentos.PNG)
 
-Nota-se que os dados estão balanceados, o que é ideal para construírmos um modelo de aprendizado de máquina. Se estivessem desbalanceados teríamos que aplicar estratégias como oversample, undersample, dentre outras.
+Note that the data is balanced, which is ideal for building a machine learning model. If it were unbalanced, we would have to apply strategies such as oversampling, undersampling, among others.
 
-- Depois de realizarmos a análise da distribuição dos sentimentos, foi necessário fazer a limpeza dos dados e a engenharia de atributos, logo após dividimos os dados em treinamento e teste (75% - 25%) e desenvolvemos um pipeline de modelagem preditiva, por fim usamos o GridSearchCV, testamos sistematicamente várias combinações de configurações (hiperparâmetros) para o pipeline, a fim de encontrar a combinação que resulta na melhor performance possível.
+- After performing the sentiment distribution analysis, it was necessary to clean the data and perform feature engineering. Then, we divided the data into training and testing sets (75% - 25%) and developed a predictive modeling pipeline. Finally, we used GridSearchCV, systematically testing various configuration combinations (hyperparameters) for the pipeline to find the combination that results in the best possible performance.
 
-- **Treinamento do Modelo**: Nesta etapa, alimentamos o pipeline com os dados de treino. O GridSearchCV executa o processo de .fit(), onde o algoritmo aprende os padrões que conectam o texto dos reviews aos seus respectivos sentimentos.
+- **Model Training**: In this step, we feed the pipeline with the training data. GridSearchCV executes the .fit() process, where the algorithm learns the patterns that connect the text of the reviews to their respective sentiments.
 
 ![Treinamento_Modelo](./img/Treinamento_Modelo.PNG)
 
-- **Acurácia do Modelo**: Para finalizar, usamos o conjunto de teste (que o modelo nunca viu) para fazer previsões e compará-las com os resultados reais. Métricas como Acurácia, Relatório de Classificação e a Matriz de Confusão nos dizem quão bem o modelo está generalizando e se ele atende aos objetivos de negócio.
+- **Model Accuracy**: Finally, we use the test set (which the model has never seen) to make predictions and compare them with the actual results. Metrics such as Accuracy, Classification Report, and the Confusion Matrix tell us how well the model is generalizing and whether it meets the business objectives.
 
 ![Acurácia do Modelo](./img/Acuracia_Modelo.PNG)
 
-Uma acurácia de 81,15% está ideal para o nosso modelo, se fosse um modelo para área da saúde por exemplo, esse percentual é inaceitável. 
-Uma acurácia de 100% pode indicar problemas de overfiting no modelo, pois o ideal é ter um modelo que aprenda o relacionamento geral entre os dados.
+An accuracy of 81.15% is ideal for our model; if it were a model for the healthcare field, for example, this percentage would be unacceptable.
+
+An accuracy of 100% may indicate overfitting problems in the model, since ideally, the model should learn the overall relationship between the data.
 
 ![Matriz de Confusão](./img/Matriz_Confusao.PNG)
 
-As diagonais em azul mostram os acertos do modelo, quanda a classe verdadeira era negativa, o modelo previu negativo 47 vezes, e acertou.
-Quando o valor verdadeiro era positivo o modelo previu como positivo 52 vezes e acertou.
-A outra diagonal tem os erros do modelo, quando o valor verdadeiro era negativo, ele previu como positivo 11 vezes e errou.
-Quando o valor verdadeiro era positivo, ele previu como negativo 12 vezes e errou.
+The blue diagonals show the model's correct predictions. When the true value was negative, the model predicted negative 47 times and was correct.
+When the true value was positive, the model predicted positive 52 times and was correct.
+The other diagonal shows the model's errors. When the true value was negative, it predicted positive 11 times and was wrong.
+When the true value was positive, it predicted negative 12 times and was wrong.
 
 ## Project Structure
 - **data/**: Contains datasets used for training and testing the model.
